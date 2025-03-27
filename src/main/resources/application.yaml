@@ -1,0 +1,55 @@
+
+#
+server:
+  port: 8802
+
+#
+spring:
+  application:
+    name: demo-${random.int[1,50]}
+
+  #
+  output:
+    ansi:
+      enabled: always
+
+  #
+  threads:
+    virtual:
+      enabled: true
+
+  #
+  security:
+    user:
+      name: actuator
+      password: my_password
+
+
+# ====================== Actuator ======================
+
+#
+management:
+  server:
+    port: 8800
+  info:
+    env:
+      enabled: true
+  auditevents:
+    enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+      group:
+        custom:
+          show-details: always
+          show-components: always
+      probes:
+        enabled: true
+    env:
+      show-values: always
+    configprops:
+      show-values: always
