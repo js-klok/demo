@@ -14,7 +14,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
  */
 @Configuration
 @EnableWebFluxSecurity
-public class WebSecurityConfiguration {
+public class WebSecurityConfig {
 
     /**
      *
@@ -30,7 +30,7 @@ public class WebSecurityConfiguration {
             .csrf(ServerHttpSecurity.CsrfSpec::disable)
             .exceptionHandling(spec -> {
                 spec.authenticationEntryPoint(new CustomServerAuthenticationEntryPoint());
-                spec.accessDeniedHandler(new CustomServerAccessDeniedHandler());
+                spec.accessDeniedHandler(new CustomServerAccessDeniedHandler()); // <--- not being triggered
             })
             .build();
     }

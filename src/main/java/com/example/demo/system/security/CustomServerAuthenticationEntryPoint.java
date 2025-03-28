@@ -17,6 +17,9 @@ public class CustomServerAuthenticationEntryPoint implements ServerAuthenticatio
 
     /**
      *
+     * Not working!!! not being triggered
+     *
+     *
      * @param exchange
      * @param ex
      * @return
