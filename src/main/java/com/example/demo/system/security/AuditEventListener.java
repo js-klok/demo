@@ -14,17 +14,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuditEventListener {
 
+    //
     private static final Logger log = LoggerFactory.getLogger(AuditEventListener.class);
 
     /**
      *
      *
-     * @param auditApplicationEvent
+     * @param event
      */
     @Async
     @EventListener
-    public void onAuditEvent(AuditApplicationEvent auditApplicationEvent) {
-        AuditEvent auditEvent = auditApplicationEvent.getAuditEvent();
+    public void onAuditEvent(AuditApplicationEvent event) {
+        AuditEvent auditEvent = event.getAuditEvent();
         log.warn(auditEvent.toString());
     }
 }

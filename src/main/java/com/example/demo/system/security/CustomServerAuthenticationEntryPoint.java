@@ -23,7 +23,7 @@ public class CustomServerAuthenticationEntryPoint implements ServerAuthenticatio
      */
     @Override
     public Mono<Void> commence(ServerWebExchange exchange, AuthenticationException ex) {
-        log.warn(ex.getMessage());
-        return Mono.empty();
+        log.warn("CustomServerAuthenticationEntryPoint: {}", ex.getMessage());
+        return exchange.getResponse().setComplete();
     }
 }

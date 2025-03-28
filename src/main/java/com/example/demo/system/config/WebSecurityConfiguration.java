@@ -1,5 +1,6 @@
 package com.example.demo.system.config;
 
+import com.example.demo.system.security.CustomServerAccessDeniedHandler;
 import com.example.demo.system.security.CustomServerAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,6 +30,7 @@ public class WebSecurityConfiguration {
             .csrf(ServerHttpSecurity.CsrfSpec::disable)
             .exceptionHandling(spec -> {
                 spec.authenticationEntryPoint(new CustomServerAuthenticationEntryPoint());
+                spec.accessDeniedHandler(new CustomServerAccessDeniedHandler());
             })
             .build();
     }

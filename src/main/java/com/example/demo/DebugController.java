@@ -24,5 +24,14 @@ public class DebugController {
         return Mono.just(UUID.randomUUID().toString());
     }
 
+    /**
+     *
+     * @return
+     */
+    @GetMapping(value = "/error", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Mono<String> error() {
+        throw new RuntimeException("error");
+    }
+
 
 }
